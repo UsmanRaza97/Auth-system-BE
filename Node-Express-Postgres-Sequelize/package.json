@@ -5,7 +5,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon index.ts"
+    "dev": "nodemon index.ts",
+    "migrate": "npx sequelize-cli db:migrate",
+    "generate-migration": "npx sequelize-cli migration:generate --name"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",

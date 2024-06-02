@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, IsString } from 'class-validator'
+import { IsEmail, IsEnum, IsNotEmpty, IsOptional, IsString } from 'class-validator'
 
 export class UserValidator {
     @IsEmail()
@@ -12,6 +12,16 @@ export class UserValidator {
     @IsString()
     @IsNotEmpty()
     username: string;
+
+    @IsString()
+    @IsOptional()
+    subjectName: string;
+
+    @IsNotEmpty()
+    @IsEnum(['Teacher', 'Student'], {
+        message: 'Role must be either Teacher or Student',
+      })
+    role: string;
 
 
 }
